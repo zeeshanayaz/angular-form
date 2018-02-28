@@ -1,0 +1,18 @@
+<div class="jumbotron">
+    <h2 class="text-center">ToDo </h2>
+</div>
+<form action="">
+  <input type="text" 
+  class="form-control col-md-6 offset-md-3"
+  (keyup.enter)="addTopic(topic)" #topic
+  >
+  <!-- <div *ngIf="toDoInput.errors.required">User Name required.</div>  -->
+  <ul class="list-group col-md-6 offset-md-3">
+    <li 
+    *ngFor="let topic of topics.controls"
+    (click)="removeTopic(topic)"
+    class="list-group-item">
+    {{topic.value}}  
+    </li>
+  </ul>
+</form>

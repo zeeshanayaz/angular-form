@@ -1,0 +1,44 @@
+<div class="jumbotron">
+    <h2 class="text-center">Sign In </h2>
+</div>
+
+<form [formGroup]="form" class="col-md-6 offset-md-3" (ngSubmit)="login()">
+    <div *ngIf="form.errors" class="alert alert-danger">
+        The username or Password is invalid
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+            formControlName="username"
+            id="username" 
+            type="text" 
+            class="form-control">
+            <div *ngIf="username.pending">Checking for uniqueness</div>
+            <div *ngIf="username.touched && !username.valid" class="alert alert-danger">
+                <div *ngIf="username.errors.required">User Name required.</div> 
+                <!-- <div *ngIf="form.get('projectName').errors?.required">User Name required.</div>     -->
+                <div *ngIf="username.errors.minlength">Name Should be {{username.errors.minlength.requiredLength}} characters.</div>  
+                <div *ngIf="username.errors.cannotContainSpace">User Name cannot contain space.</div>   
+                <div *ngIf="username.errors.shouldBeUnique">User Name is not available.</div>  
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            formControlName="password"
+            id="password" 
+            type="password" 
+            class="form-control">
+            <div *ngIf="password.touched && !password.valid" class="alert alert-danger">
+                <div *ngIf="password.errors.required">Password required.</div>
+                <div *ngIf="password.errors.minlength">Password Should be {{password.errors.minlength.requiredLength}} characters.</div>    
+                 <!-- <div *ngIf="username.errors.required">User Name required.</div> -->
+                <!-- <div *ngIf="!username.errors.required">
+                    <div *ngIf="password.errors.required">Password required.</div>
+                    <div *ngIf="password.errors.minlength">Password Should be {{password.errors.minlength.requiredLength}} characters.</div>    
+                </div>
+                 -->
+            </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+</form>

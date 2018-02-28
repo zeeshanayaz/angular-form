@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import "~bootstrap/dist/css/bootstrap.css"; */
+body{
+    /* padding: 20px; */
+    background-color: #F5F5F5
+}
+.jumbotron{
+    background-color: #1976D2;
+    color: white;
+    box-shadow: 0px 2px 5px grey;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
+}
+
+.btn{
+    box-shadow: 0px 2px 5px grey;
+    width: 100%;
+}
+.list-group-item{
+    background-color: #F5F5F5;
+    margin: 5px
+}
